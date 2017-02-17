@@ -1,5 +1,5 @@
 ![CF](https://i.imgur.com/7v5ASc8.png)  Lab 10: Functional Programming
-=======
+
 [Code of Conduct](https://github.com/codefellows/code-of-conduct)
 
 The concepts of functional programming have significantly shaped Computer Science from the early days.
@@ -19,4 +19,4 @@ Today there are many TODO items, but they are (mostly) smaller bites.
 
 
 ## Stretch Goals:
-- What statistical analysis would be of interest to you with this data set? Code it up!  
+- What statistical analysis would be of interest to you with this data set? Code it up! 

@@ -8,7 +8,7 @@ const PORT = process.env.PORT || 3000;
 const app = express();
 const conString = 'postgres://localhost:5432'; // DONE: Don't forget to set your own conString
 const client = new pg.Client(conString);
-client.connect(console.error);
+client.connect();
 
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({extended: true}));

@@ -24,6 +24,8 @@
 
   Article.loadAll = rows => {
     rows.sort((a,b) => (new Date(b.publishedOn)) - (new Date(a.publishedOn)));
+    Article.all = rows.map(ele => new Article(ele));
+  };
 
     // DONE: Refactor this forEach code, by using a `.map` call instead, since want we are trying to accomplish
     // is the transformation of one colleciton into another.
@@ -33,13 +35,11 @@
     Article.all.push(new Article(ele));
   });
   */
-    function object(ele) {
-      return new Article(ele);
-    }
-    Article.all = rows.map(object);
-  };
+  //   function object(ele) {
+  //     return new Article(ele);
+  //   }
+  //   Article.all = rows.map(object);
   // alternative way
-  // Article.all = rows.map(ele => new Article(ele));
 
 
 
@@ -68,7 +68,7 @@
 
   // DONE: Chain together a `map` and a `reduce` call to get a rough count of all words in all articles.
   Article.numWordsAll = () => {
-    return Article.all.map(element => element.body.split(" ").length).reduce(function (acc, val){
+    return Article.all.map(element => element.body.split(' ').length).reduce(function (acc, val){
       return acc + val;
     },0);
   };
@@ -83,13 +83,14 @@
   };
 
   Article.numWordsByAuthor = () => {
+    console.log('numWordsByAuthor body executing');
     return Article.allAuthors().map(author => {
       // DONE: Transform each author string into an object with properties for
       // the author's name, as well as the total number of words across all articles
       // written by the specified author.
-      var authorStats = {
+      return {
         author : author,
-        stats : Article.all.filter(function(num){return num.author === author}).map(element => element.body.split(" ").length).reduce(function (acc, val){
+        stats : Article.all.filter(function(num){return num.author === author}).map(element => element.body.split(' ').length).reduce(function (acc, val){
           return acc + val;
         },0)
       };
